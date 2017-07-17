@@ -32,6 +32,7 @@ func (r codecRequest) ReadRequest(x interface{}) error {
 // Writes the response using the RPC method reply.
 func (r codecRequest) WriteResponse(w http.ResponseWriter, x interface{}) {
 	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
 	rep := reply{
 		Code: 200,
 		Data: x,
